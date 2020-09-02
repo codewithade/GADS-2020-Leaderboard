@@ -12,4 +12,5 @@ public abstract class DataModule {
     @Binds
     public abstract LeaderRepository bindLeaderRepository(LeaderRepositoryImpl repoIml);
 
+
 }

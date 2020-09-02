@@ -3,26 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/LaunchFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.smatworld.gads2020leaderboard.app.ui.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/MainFragment"
+        android:name="com.smatworld.gads2020leaderboard.app.ui.MainFragment"
+        android:label="@string/main_fragment_label"
+        tools:layout="@layout/fragment_main">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_MainFragment_to_SubmissionFragment"
+            app:destination="@id/SubmissionFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.smatworld.gads2020leaderboard.app.ui.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/SkillFragment"
+        android:name="com.smatworld.gads2020leaderboard.app.ui.SkillFragment"
+        android:label="@string/skill_fragment_label"
+        tools:layout="@layout/fragment_skill">
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/LearningFragment"
+        android:name="com.smatworld.gads2020leaderboard.app.ui.LearningFragment"
+        android:label="@string/learning_fragment_label"
+        tools:layout="@layout/fragment_learning" />
+    <fragment
+        android:id="@+id/LaunchFragment"
+        android:name="com.smatworld.gads2020leaderboard.app.ui.LaunchFragment"
+        android:label="fragment_launch"
+        tools:layout="@layout/fragment_launch">
+        <action
+            android:id="@+id/action_launchFragment_to_MainFragment"
+            app:destination="@id/MainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SubmissionFragment"
+        android:name="com.smatworld.gads2020leaderboard.app.ui.SubmissionFragment"
+        android:label="SubmissionFragment"
+        tools:layout="@layout/fragment_submission" />
 </navigation>

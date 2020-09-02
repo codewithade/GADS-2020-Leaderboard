@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.smatworld.gads2020leaderboard.domain.entities.LearningLeaders" />
+
+        <variable
+            name="item"
+            type="LearningLeaders" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/app_padding">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/app_padding">
+
+            <ImageView
+                android:id="@+id/badge_image"
+                android:layout_width="@dimen/badge_icon_width"
+                android:layout_height="@dimen/badge_icon_height"
+                android:layout_marginStart="@dimen/margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:learning_badge="@{item.badgeUrl}"
+                tools:src="@drawable/top_learner" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/username_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:elegantTextHeight="true"
+                android:text="@{item.name}"
+                android:textAppearance="?textAppearanceHeadline5"
+                app:layout_constraintBottom_toTopOf="@id/learning_details_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/badge_image"
+                app:layout_constraintTop_toTopOf="@id/badge_image"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="@string/username" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/learning_details_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?textAppearanceBody2"
+                app:layout_constraintBottom_toBottomOf="@id/badge_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/username_text"
+                app:layout_constraintTop_toBottomOf="@id/username_text"
+                app:learning_hours="@{item}"
+                tools:text="@string/learning_hours_text" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

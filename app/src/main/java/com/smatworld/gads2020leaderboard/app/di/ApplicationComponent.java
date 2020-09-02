@@ -2,6 +2,9 @@ package com.smatworld.gads2020leaderboard.app.di;
 
 import android.content.Context;
 
+import com.smatworld.gads2020leaderboard.app.ui.LearningFragment;
+import com.smatworld.gads2020leaderboard.app.ui.SkillFragment;
+
 import javax.inject.Singleton;
 
 import dagger.BindsInstance;
@@ -17,4 +20,12 @@ public interface ApplicationComponent {
         // With @BindsInstance, the Context passed in will be available in the graph
         ApplicationComponent create(@BindsInstance Context context);
     }
+
+    // Classes that can be injected by this Component
+    // This tells Dagger that WelcomeFragment requests injection from AuthComponent
+    // so that this subcomponent graph needs to satisfy all the dependencies of the
+    // fields that WelcomeFragment is injecting
+    void inject(LearningFragment learningFragment);
+
+    void inject(SkillFragment skillFragment);
 }

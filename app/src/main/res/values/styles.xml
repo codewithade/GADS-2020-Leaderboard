@@ -11,8 +11,11 @@
         <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
         <item name="bottomSheetStyle">@style/Widget.MyTheme.BottomSheet.Modal</item>
         <!--<item name="android:navigationBarColor">?attr/colorSurface</item>-->
-        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
+            @android:color/transparent
+        </item>
     </style>
+
     <style name="Widget.MyTheme.BottomSheet.Modal" parent="Widget.MaterialComponents.BottomSheet.Modal">
         <item name="shapeAppearanceOverlay">?attr/shapeAppearanceLargeComponent</item>
     </style>
@@ -23,6 +26,27 @@
     </style>
 
     <style name="Theme.MyApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.MyApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.MyTheme.TextView" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Widget.MyTheme.Button" parent="Base.Theme.MyApp">
+        <item name="android:textAppearance">?textAppearanceListItem</item>
+        <item name="android:gravity">center</item>
+        <item name="backgroundTint">?attr/colorOnPrimary</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Widget.MyTheme.TextInputLayout" parent="Base.Theme.MyApp"></style>
+
+    <style name="Widget.MyTheme.SubmitButton" parent="Widget.MyTheme.Button">
+        <item name="backgroundTint">@color/submit_button_color</item>
+        <item name="android:textAppearance">?textAppearanceHeadline5</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
 
 </resources>

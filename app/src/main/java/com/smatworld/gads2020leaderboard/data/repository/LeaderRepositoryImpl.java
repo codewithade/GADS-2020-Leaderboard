@@ -1,6 +1,12 @@
 package com.smatworld.gads2020leaderboard.data.repository;
 
+import androidx.lifecycle.LiveData;
+
+import com.smatworld.gads2020leaderboard.domain.entities.LearningLeaders;
+import com.smatworld.gads2020leaderboard.domain.entities.SkillIQ;
 import com.smatworld.gads2020leaderboard.domain.repository.LeaderRepository;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -13,5 +19,15 @@ public class LeaderRepositoryImpl implements LeaderRepository {
     public LeaderRepositoryImpl(RemoteDataSource remoteDataSource, LocalDataSource localDataSource) {
         mRemoteDataSource = remoteDataSource;
         mLocalDataSource = localDataSource;
+    }
+
+    @Override
+    public LiveData<List<LearningLeaders>> getLearningHourLeaders() {
+        return mRemoteDataSource.getLearningLeaders();
+    }
+
+    @Override
+    public LiveData<List<SkillIQ>> getSkillIQLeaders() {
+        return mRemoteDataSource.getSkillIQ();
     }
 }

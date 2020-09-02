@@ -2,11 +2,24 @@
     <string name="app_name">Leaderboard</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="learning_fragment_label">Learning Leaders</string>
+    <string name="skill_fragment_label">Skill IQ Leaders</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="submit_button_text">Submit</string>
+    <string name="main_fragment_label">GADS Main</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_text">Last Name</string>
+    <string name="email_address_hint">Email Address</string>
+    <string name="github_link_text">Project on GITHUB (link)</string>
+    <string name="submit_text">Submit</string>
+    <string name="empty_input_text_error">field cannot be empty</string>
+    <string name="username">Pharis Muigai</string>
+    <string name="learning_hours_text">223 learning hours, Kenya</string>
+    <string name="skill_iq_score_text">300 skill IQ Score, Egypt</string>
 </resources>
