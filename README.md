@@ -4,6 +4,7 @@ An Android mobile app that showcases the top 20 learners in both the 'Learning L
 > Uses Retrofit to make a network connection to the Web Service API
 
 > screenshots:
+
 ![screenshot-1599181206786](https://user-images.githubusercontent.com/65837990/92188133-a8358f00-ee53-11ea-9505-0a253b21304f.jpg)
 ![screenshot-1599181121077](https://user-images.githubusercontent.com/65837990/92188156-b8e60500-ee53-11ea-84d2-b6fe2cb5ecc2.jpg)
 ![screenshot-1599181069882](https://user-images.githubusercontent.com/65837990/92188166-bd122280-ee53-11ea-8799-339fcc9fac95.jpg)
