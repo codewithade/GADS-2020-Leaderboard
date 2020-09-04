@@ -58,15 +58,15 @@
 
     <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorOnPrimary</item>
-        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
-        <!--<item name="android:navigationBarColor" tools:ignore="NewApi">?android:attr/colorBackground</item>-->
+        <!--<item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>--> // removing this makes the status bar color effective
+        <item name="android:navigationBarColor" tools:ignore="NewApi">?android:attr/colorBackground</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
         <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
             ?attr/colorControlHighlight
         </item>
 
-        <!--the below two items makes the layout transparent and full screen-->
-        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <!--the below two items makes the layout transparent and full screen--><!--
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:ignore="NewApi">true</item>-->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
