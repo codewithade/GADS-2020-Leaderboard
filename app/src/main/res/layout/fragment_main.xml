@@ -5,7 +5,8 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -18,7 +19,6 @@
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="50dp"
-                android:background="?attr/colorPrimary"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,19 +55,19 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
                 android:layout_width="0dp"
-                style="@style/Widget.MaterialComponents.TabLayout.PrimarySurface"
+                style="@style/Widget.MyTheme.TabLayout"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/top"
-                app:tabMode="fixed"
-                app:tabIndicatorHeight="6dp"/>
+                app:tabMode="fixed"/>
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_anchor="@id/tab_layout"
+                android:background="?attr/colorOnPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

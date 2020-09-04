@@ -25,6 +25,10 @@
 
     </style>
 
+    <style name="ShapeAppearance.MyTheme.SmallComponent.EditText">
+        <item name="cornerSize">5dp</item>
+    </style>
+
     <!--Shape Appearance for medium components like cards, alert dialogs-->
     <style name="ShapeAppearance.MyTheme.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <!--Your custom shape here-->

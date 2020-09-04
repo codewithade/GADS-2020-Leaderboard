@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.smatworld.gads2020leaderboard.presentation.factory.ViewModelProviderFactory;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.LearningViewModel;
+import com.smatworld.gads2020leaderboard.presentation.viewmodels.ProjectSubmissionViewModel;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.SkillViewModel;
 
 import dagger.Binds;
@@ -28,5 +29,10 @@ public abstract class PresentationModule {
     @IntoMap
     @ViewModelKey(SkillViewModel.class)
     public abstract ViewModel bindSkillViewModel(SkillViewModel skillViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProjectSubmissionViewModel.class)
+    public abstract ViewModel bindProjectSubmissionViewModel(ProjectSubmissionViewModel submissionViewModel);
 
 }

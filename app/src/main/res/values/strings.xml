@@ -22,4 +22,13 @@
     <string name="username">Pharis Muigai</string>
     <string name="learning_hours_text">223 learning hours, Kenya</string>
     <string name="skill_iq_score_text">300 skill IQ Score, Egypt</string>
+
+    <string name="submission_success">The project was successfully submitted</string>
+    <string name="submission_pending">The project has been received and it is pending submisson</string>
+    <string name="submission_failed">Project submission failed. Try again.</string>
+    <string name="submission_not_successful">Submission not Successful</string>
+    <string name="submission_successful">Submission Successful</string>
+    <string name="are_you_sure">Are you sure</string>
+    <string name="yes">Yes</string>
+    <string name="question">\?</string>
 </resources>

@@ -41,12 +41,31 @@
         <item name="android:textColor">?attr/colorPrimary</item>
     </style>
 
-    <style name="Widget.MyTheme.TextInputLayout" parent="Base.Theme.MyApp"></style>
+    <style name="Widget.MyTheme.TabLayout" parent="Widget.MaterialComponents.TabLayout.PrimarySurface">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="tabTextAppearance">@style/TextAppearance.MyTheme.TabLayoutTitle</item>
+        <item name="tabIndicatorHeight">6dp</item>
+    </style>
+
+    <style name="Widget.MyTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@null</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MyTheme.SmallComponent.EditText</item>
+    </style>
 
     <style name="Widget.MyTheme.SubmitButton" parent="Widget.MyTheme.Button">
         <item name="backgroundTint">@color/submit_button_color</item>
         <item name="android:textAppearance">?textAppearanceHeadline5</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
+
+    <style name="Widget.MyTheme.ConfirmButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="shapeAppearance">@style/ShapeAppearance.MyTheme.SmallComponent.EditText</item>
+        <item name="android:textColor">@color/submit_button_color</item>
+        <item name="strokeColor">@color/submit_button_color</item>
+        <item name="android:paddingStart">40dp</item>
+        <item name="android:paddingEnd">40dp</item>
+        <item name="android:textAppearance">?textAppearanceHeadline6</item>
+    </style>
+
 
 </resources>

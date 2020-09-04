@@ -66,6 +66,7 @@
         </item>
 
         <!--the below two items makes the layout transparent and full screen-->
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>

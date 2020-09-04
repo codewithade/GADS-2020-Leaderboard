@@ -15,8 +15,6 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin"
-        android:layout_marginEnd="@dimen/margin"
         android:layout_marginBottom="@dimen/app_padding">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,8 +24,8 @@
 
             <ImageView
                 android:id="@+id/badge_image"
-                android:layout_width="@dimen/badge_icon_width"
-                android:layout_height="@dimen/badge_icon_height"
+                android:layout_width="@dimen/skill_badge_width"
+                android:layout_height="@dimen/skill_badge_height"
                 android:layout_marginStart="@dimen/margin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +38,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
-                android:elegantTextHeight="true"
+                android:layout_marginBottom="3dp"
                 android:text="@{item.name}"
-                android:textAppearance="?textAppearanceHeadline5"
+                android:textAppearance="?textAppearanceHeadline6"
                 app:layout_constraintBottom_toTopOf="@id/learning_details_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/badge_image"
@@ -54,6 +52,7 @@
                 android:id="@+id/learning_details_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:textAppearance="?textAppearanceBody2"
                 app:layout_constraintBottom_toBottomOf="@id/badge_image"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +60,6 @@
                 app:layout_constraintTop_toBottomOf="@id/username_text"
                 app:skill_iq="@{item}"
                 tools:text="@string/skill_iq_score_text" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

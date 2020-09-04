@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_padding">32dp</dimen>
+    <dimen name="learner_badge_width">100dp</dimen>
+    <dimen name="learner_badge_height">100dp</dimen>
+    <dimen name="skill_badge_height">120dp</dimen>
+    <dimen name="skill_badge_width">120dp</dimen>
+    <dimen name="recycler_padding">32dp</dimen>
+    <dimen name="tab_item_size">20sp</dimen>
+</resources>

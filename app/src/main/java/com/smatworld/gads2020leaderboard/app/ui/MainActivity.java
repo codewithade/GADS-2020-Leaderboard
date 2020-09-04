@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        // In Activity's onCreate() for instance
+        // In Activity's onCreate() for instance makes navigation bar transparent
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);

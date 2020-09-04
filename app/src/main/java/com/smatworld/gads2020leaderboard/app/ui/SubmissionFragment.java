@@ -9,23 +9,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.smatworld.gads2020leaderboard.R;
+import com.smatworld.gads2020leaderboard.app.utils.Helper;
+import com.smatworld.gads2020leaderboard.app.utils.State;
+import com.smatworld.gads2020leaderboard.databinding.DialogConfirmSubmissionBinding;
 import com.smatworld.gads2020leaderboard.databinding.FragmentSubmissionBinding;
+import com.smatworld.gads2020leaderboard.domain.entities.SubmissionDetails;
+import com.smatworld.gads2020leaderboard.presentation.factory.ViewModelProviderFactory;
+import com.smatworld.gads2020leaderboard.presentation.viewmodels.ProjectSubmissionViewModel;
 
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 public class SubmissionFragment extends Fragment {
+    @Inject
+    public ViewModelProviderFactory mViewModelProviderFactory;
+    private ProjectSubmissionViewModel mSubmissionViewModel;
 
     private FragmentSubmissionBinding mBinding;
     private TextInputLayout mFirstName;
@@ -34,9 +49,17 @@ public class SubmissionFragment extends Fragment {
     private TextInputLayout mGitLink;
     private boolean isEmpty = true;
     private MaterialButton mSubmitButton;
+    private ProgressBar mProgressBar;
 
     public SubmissionFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Helper.getApplicationComponent(requireActivity()).inject(this);
+        mSubmissionViewModel = new ViewModelProvider(requireActivity(), mViewModelProviderFactory).get(ProjectSubmissionViewModel.class);
     }
 
     @Override
@@ -45,8 +68,7 @@ public class SubmissionFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_submission, container, false);
         return mBinding.getRoot();
     }
@@ -54,14 +76,14 @@ public class SubmissionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        setUpToolBar();
+        mBinding.backButton.setOnClickListener(view1 -> launchHomePage());
         bindViews();
         addTextWatcher();
+
         mSubmitButton.setOnClickListener(view1 -> {
             addTextChangeListener();
             if (!isEmpty)
-                submitProject();
+                dialogBuilder();
         });
 
     }
@@ -73,12 +95,6 @@ public class SubmissionFragment extends Fragment {
         Objects.requireNonNull(mGitLink.getEditText()).addTextChangedListener(mTextWatcher);
     }
 
-    private void submitProject() {
-        //TODO
-        Toast.makeText(requireContext(), "Project submission in progress...", Toast.LENGTH_SHORT).show();
-    }
-
-
     private void addTextChangeListener() {
         mFirstName.addOnEditTextAttachedListener(mTextAttachedListener);
         mLastName.addOnEditTextAttachedListener(mTextAttachedListener);
@@ -86,19 +102,28 @@ public class SubmissionFragment extends Fragment {
         mGitLink.addOnEditTextAttachedListener(mTextAttachedListener);
     }
 
+    private void submitProject() {
+        String firstName = Objects.requireNonNull(mFirstName.getEditText()).getText().toString();
+        String lastName = Objects.requireNonNull(mLastName.getEditText()).getText().toString();
+        String email = Objects.requireNonNull(mEmail.getEditText()).getText().toString();
+        String projectLink = Objects.requireNonNull(mGitLink.getEditText()).getText().toString();
+
+        SubmissionDetails submissionDetails = new SubmissionDetails(firstName, lastName, email, projectLink);
+        mSubmissionViewModel.submitProject(submissionDetails).observe(getViewLifecycleOwner(), this::displayFeedback);
+    }
+
+
     private void bindViews() {
         mFirstName = mBinding.firstNameText;
         mLastName = mBinding.lastNameText;
         mEmail = mBinding.emailText;
         mGitLink = mBinding.gitLinkText;
         mSubmitButton = mBinding.submitButton;
+        mProgressBar = mBinding.progressBar;
     }
 
-    private void setUpToolBar() {
-        ImageButton backButton = mBinding.backButton;
-        backButton.setOnClickListener(view -> NavHostFragment.findNavController(SubmissionFragment.this).popBackStack(R.id.MainFragment, false));
-        /*MaterialToolbar toolbar = mBinding..toolbar;
-        toolbar.setNavigationOnClickListener(view1 -> NavHostFragment.findNavController(SubmissionFragment.this).popBackStack(R.id.MainFragment, false));*/
+    private void launchHomePage() {
+        NavHostFragment.findNavController(SubmissionFragment.this).popBackStack(R.id.MainFragment, false);
     }
 
     private TextInputLayout.OnEditTextAttachedListener mTextAttachedListener = inputLayout -> {
@@ -135,6 +160,41 @@ public class SubmissionFragment extends Fragment {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         if (imm != null)
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void displayFeedback(State state) {
+        String feedback;
+        switch (state) {
+            case SUCCESS:
+                feedback = getString(R.string.submission_success);
+
+                break;
+            case FAILURE:
+                feedback = getString(R.string.submission_failed);
+                break;
+            case PENDING:
+                feedback = getString(R.string.submission_pending);
+                break;
+            default:
+                throw new IllegalArgumentException("Illegal state: " + state.name());
+        }
+        Snackbar.make(requireView(), feedback, Snackbar.LENGTH_SHORT).show();
+        if (state == State.SUCCESS) launchHomePage();
+    }
+
+    private void dialogBuilder() {
+        final AlertDialog alertDialog = new MaterialAlertDialogBuilder(requireContext()).create();
+
+        DialogConfirmSubmissionBinding binding = DataBindingUtil.inflate(LayoutInflater.from(requireContext()), R.layout.dialog_confirm_submission, null, false);
+        binding.cancelButton.setOnClickListener(view -> alertDialog.dismiss());
+        binding.yesButton.setOnClickListener(view -> {
+            alertDialog.dismiss();
+            Toast.makeText(requireContext(), "submission in progress...", Toast.LENGTH_SHORT).show();
+            mProgressBar.setVisibility(View.VISIBLE);
+        });//view -> submitProject());
+
+        alertDialog.setView(binding.getRoot());
+        alertDialog.show();
     }
 
 }

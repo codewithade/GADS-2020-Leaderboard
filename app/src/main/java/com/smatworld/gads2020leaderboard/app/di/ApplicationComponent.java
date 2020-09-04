@@ -3,7 +3,9 @@ package com.smatworld.gads2020leaderboard.app.di;
 import android.content.Context;
 
 import com.smatworld.gads2020leaderboard.app.ui.LearningFragment;
+import com.smatworld.gads2020leaderboard.app.ui.MainFragment;
 import com.smatworld.gads2020leaderboard.app.ui.SkillFragment;
+import com.smatworld.gads2020leaderboard.app.ui.SubmissionFragment;
 
 import javax.inject.Singleton;
 
@@ -28,4 +30,8 @@ public interface ApplicationComponent {
     void inject(LearningFragment learningFragment);
 
     void inject(SkillFragment skillFragment);
+
+    void inject(MainFragment mainFragment);
+
+    void inject(SubmissionFragment submissionFragment);
 }

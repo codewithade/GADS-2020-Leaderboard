@@ -5,7 +5,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/app_padding"
+        android:paddingStart="@dimen/recycler_padding"
+        android:paddingEnd="@dimen/recycler_padding"
+        android:paddingTop="@dimen/tab_padding_top"
         tools:context=".app.ui.SkillFragment">
 
         <androidx.recyclerview.widget.RecyclerView

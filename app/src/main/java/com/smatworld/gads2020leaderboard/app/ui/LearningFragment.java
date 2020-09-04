@@ -31,14 +31,17 @@ public class LearningFragment extends Fragment {
     @Inject
     public ViewModelProviderFactory mViewModelProviderFactory;
     private LearningViewModel mLearningViewModel;
+    private static LearningFragment sInstance;
 
-    public LearningFragment() {
+    private LearningFragment() {
         // Required empty public constructor
     }
 
     // TODO: Rename and change types and number of parameters
     public static LearningFragment newInstance() {
-        return new LearningFragment();
+        if (sInstance == null)
+            sInstance = new LearningFragment();
+        return sInstance;
     }
 
     @Override
@@ -64,7 +67,8 @@ public class LearningFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initRecyclerView();
 
-        mLearningViewModel.getLearningLeaders().observe(getViewLifecycleOwner(), mAdapter::submitList);
+        // mLearningViewModel.getLearningLeaders().observe(getViewLifecycleOwner(), mAdapter::submitList);
+        mLearningViewModel.getLiveData().observe(getViewLifecycleOwner(), mAdapter::submitList);
     }
 
     private void initRecyclerView() {

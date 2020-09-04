@@ -28,9 +28,15 @@ public class SkillFragment extends Fragment {
     public ViewModelProviderFactory mViewModelProviderFactory;
     private SkillViewModel mSkillViewModel;
     private FragmentSkillBinding mBinding;
+    private static SkillFragment sInstance;
+
+    private SkillFragment() {
+    }
 
     public static SkillFragment newInstance() {
-        return new SkillFragment();
+        if (sInstance == null)
+            sInstance = new SkillFragment();
+        return sInstance;
     }
 
     @Override
@@ -50,7 +56,8 @@ public class SkillFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initRecyclerView();
 
-        mSkillViewModel.getSkillIQLeaders().observe(getViewLifecycleOwner(), mAdapter::submitList);
+        //mSkillViewModel.getSkillIQLeaders().observe(getViewLifecycleOwner(), mAdapter::submitList);
+        mSkillViewModel.getLiveData().observe(getViewLifecycleOwner(), mAdapter::submitList);
     }
 
     private void initRecyclerView() {

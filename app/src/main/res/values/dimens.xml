@@ -6,7 +6,12 @@
     <dimen name="button_padding_top">2dp</dimen>
     <dimen name="button_padding_bottom">2dp</dimen>
     <dimen name="button_margin_top">30dp</dimen>
-    <dimen name="badge_icon_width">100dp</dimen>
-    <dimen name="badge_icon_height">100dp</dimen>
+    <dimen name="learner_badge_width">80dp</dimen>
+    <dimen name="learner_badge_height">80dp</dimen>
+    <dimen name="skill_badge_height">100dp</dimen>
+    <dimen name="skill_badge_width">100dp</dimen>
     <dimen name="margin">10dp</dimen>
+    <dimen name="tab_padding_top">4dp</dimen>
+    <dimen name="recycler_padding">16dp</dimen>
+    <dimen name="tab_item_size">16sp</dimen>
 </resources>

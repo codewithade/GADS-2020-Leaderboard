@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dialog.Alert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/app_padding"
+        android:paddingTop="@dimen/app_padding"
+        android:paddingEnd="@dimen/app_padding"
+        android:paddingBottom="48dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/sure_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:gravity="end"
+            android:text="@string/are_you_sure"
+            android:textAppearance="?textAppearanceHeadline5"
+            app:layout_constraintBottom_toTopOf="@id/yes_button"
+            app:layout_constraintEnd_toStartOf="@+id/question"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cancel_button" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question"
+            android:textAppearance="?textAppearanceHeadline2"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/sure_tv"
+            app:layout_constraintBottom_toBottomOf="@id/sure_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sure_tv"
+            app:layout_constraintTop_toTopOf="@id/sure_tv" />
+
+        <ImageButton
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/yes_button"
+            style="@style/Widget.MyTheme.ConfirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="@string/yes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sure_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

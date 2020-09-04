@@ -10,7 +10,7 @@ import com.smatworld.gads2020leaderboard.R;
 import com.smatworld.gads2020leaderboard.domain.entities.LearningLeaders;
 import com.smatworld.gads2020leaderboard.domain.entities.SkillIQ;
 
-public class BindingAdapters {
+public class CustomBindingAdapters {
 
     @BindingAdapter(value = {"learning_hours"})
     public static void setLearningHours(MaterialTextView textView, LearningLeaders learningLeaders) {
