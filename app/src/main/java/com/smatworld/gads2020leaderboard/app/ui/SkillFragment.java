@@ -19,6 +19,8 @@ import com.smatworld.gads2020leaderboard.databinding.FragmentSkillBinding;
 import com.smatworld.gads2020leaderboard.presentation.factory.ViewModelProviderFactory;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.SkillViewModel;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.inject.Inject;
 
 public class SkillFragment extends Fragment {
@@ -47,7 +49,7 @@ public class SkillFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_skill, container, false);
         return mBinding.getRoot();
     }
@@ -55,8 +57,6 @@ public class SkillFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initRecyclerView();
-
-        //mSkillViewModel.getSkillIQLeaders().observe(getViewLifecycleOwner(), mAdapter::submitList);
         mSkillViewModel.getLiveData().observe(getViewLifecycleOwner(), mAdapter::submitList);
     }
 
@@ -75,8 +75,8 @@ public class SkillFragment extends Fragment {
     }
 
     private void initViewModel() {
-        // use 'requireActivity()' so as to retrieve the same instance of GalleryViewModel created by the Activity
-        // This gives a single GalleryViewModel that is available for use by any fragment within the Activity
+        // use 'requireActivity()' so as to retrieve the same instance of SkillViewModel created by the Activity
+        // This gives a single SkillViewModel that is available for use by any fragment within the Activity
         mSkillViewModel = new ViewModelProvider(requireActivity(), mViewModelProviderFactory).get(SkillViewModel.class);
     }
 }

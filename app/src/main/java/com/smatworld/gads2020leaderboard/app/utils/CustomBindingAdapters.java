@@ -12,6 +12,7 @@ import com.smatworld.gads2020leaderboard.domain.entities.SkillIQ;
 
 public class CustomBindingAdapters {
 
+    // Takes the model data, format its to the appropriate form and binds it to TextView
     @BindingAdapter(value = {"learning_hours"})
     public static void setLearningHours(MaterialTextView textView, LearningLeaders learningLeaders) {
         if (learningLeaders != null) {
@@ -28,6 +29,7 @@ public class CustomBindingAdapters {
         }
     }
 
+    // download and display the image url
     @BindingAdapter(value = {"skill_badge"})
     public static void setSkillBadge(ImageView imageView, String url) {
         if (url != null) {

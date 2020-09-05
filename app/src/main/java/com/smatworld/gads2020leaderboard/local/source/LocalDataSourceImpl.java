@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-// fulfills the contract set by the Data layer
+// fulfills the contract set by the Data layer but not used for now
 public class LocalDataSourceImpl implements LocalDataSource {
 
     @Inject

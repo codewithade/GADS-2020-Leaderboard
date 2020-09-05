@@ -20,10 +20,12 @@ import com.smatworld.gads2020leaderboard.R;
 import com.smatworld.gads2020leaderboard.app.utils.Constant;
 import com.smatworld.gads2020leaderboard.app.utils.Helper;
 import com.smatworld.gads2020leaderboard.databinding.FragmentMainBinding;
-import com.smatworld.gads2020leaderboard.presentation.factory.SplashScreenViewModel;
+import com.smatworld.gads2020leaderboard.presentation.viewmodels.SplashScreenViewModel;
 import com.smatworld.gads2020leaderboard.presentation.factory.ViewModelProviderFactory;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.LearningViewModel;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.SkillViewModel;
+
+import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Inject;
 
@@ -49,7 +51,7 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
         return mBinding.getRoot();
     }
@@ -59,9 +61,11 @@ public class MainFragment extends Fragment {
         mBinding.submitButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_MainFragment_to_SubmissionFragment));
         setUpTabLayout();
 
+        // redirect user back to splash screen (LaunchFragment) if its first time app was launched.
         mSplashScreenViewModel.getIsFirstRun().observe(getViewLifecycleOwner(), isFirstRun -> {
             if (isFirstRun) NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_MainFragment_to_LaunchFragment);
         });
+
         // fetch and observe data from repository
         mLearningViewModel.getLearningLeaders().observe(getViewLifecycleOwner(), learningLeaders -> mLearningViewModel.setLiveData(learningLeaders));
         mSkillViewModel.getSkillIQLeaders().observe(getViewLifecycleOwner(), skillIQS -> mSkillViewModel.setLiveData(skillIQS));

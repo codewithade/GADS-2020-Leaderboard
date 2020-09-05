@@ -55,7 +55,7 @@ public class ServiceBuilder {
                  Sometimes you’ll want to show resources if they are available immediately, but not otherwise.
                  This can be used so your application can show something while waiting for the latest data to be downloaded.
                  To restrict a request to locally-cached resources, add the only-if-cached directive:
-                  To permit stale cached responses, use the max-stale directive with the maximum staleness in seconds:*/
+                 To permit stale cached responses, use the max-stale directive with the maximum staleness in days:*/
                 CacheControl cacheControl = new CacheControl.Builder().onlyIfCached().maxStale(365, TimeUnit.DAYS).build();
                 request = request.newBuilder().cacheControl(cacheControl).build();
             } else { // user is online

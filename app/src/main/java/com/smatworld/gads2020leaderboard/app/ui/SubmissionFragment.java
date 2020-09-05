@@ -20,9 +20,9 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.smatworld.gads2020leaderboard.R;
+import com.smatworld.gads2020leaderboard.app.utils.Constant;
 import com.smatworld.gads2020leaderboard.app.utils.Helper;
 import com.smatworld.gads2020leaderboard.app.utils.State;
 import com.smatworld.gads2020leaderboard.databinding.DialogConfirmSubmissionBinding;
@@ -30,6 +30,8 @@ import com.smatworld.gads2020leaderboard.databinding.FragmentSubmissionBinding;
 import com.smatworld.gads2020leaderboard.domain.entities.SubmissionDetails;
 import com.smatworld.gads2020leaderboard.presentation.factory.ViewModelProviderFactory;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.ProjectSubmissionViewModel;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -63,13 +65,18 @@ public class SubmissionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_submission, container, false);
         return mBinding.getRoot();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        saveTextInputState(outState);
     }
 
     @Override
@@ -77,13 +84,13 @@ public class SubmissionFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mBinding.backButton.setOnClickListener(view1 -> launchHomePage());
         bindViews();
+        if (savedInstanceState != null) restoreTextInputState(savedInstanceState);
         addTextWatcher();
 
         mSubmitButton.setOnClickListener(view1 -> {
             addTextChangeListener();
             if (!isEmpty)
-                //dialogBuilder();
-                displayFeedback(State.FAILURE);
+                dialogBuilder();
         });
 
     }
@@ -112,7 +119,6 @@ public class SubmissionFragment extends Fragment {
         mSubmissionViewModel.submitProject(submissionDetails).observe(getViewLifecycleOwner(), this::displayFeedback);
     }
 
-
     private void bindViews() {
         mFirstName = mBinding.firstNameText;
         mLastName = mBinding.lastNameText;
@@ -126,6 +132,7 @@ public class SubmissionFragment extends Fragment {
         NavHostFragment.findNavController(SubmissionFragment.this).popBackStack(R.id.MainFragment, false);
     }
 
+    // watches for empty Text Input fields
     private TextInputLayout.OnEditTextAttachedListener mTextAttachedListener = inputLayout -> {
         if (Objects.requireNonNull(inputLayout.getEditText()).getText().toString().isEmpty()) {
             inputLayout.setError(getResources().getString(R.string.empty_input_text_error));
@@ -156,17 +163,19 @@ public class SubmissionFragment extends Fragment {
         }
     };
 
+    // displays feedback after attempting to submit project
     private void displayFeedback(State state) {
-        AlertDialog dialog = null;
         String feedback;
         switch (state) {
             case SUCCESS:
+                mProgressBar.setVisibility(View.GONE);
                 feedback = getString(R.string.submission_success);
-                dialog = new MaterialAlertDialogBuilder(requireContext()).setView(R.layout.dialog_success).show();
+                new MaterialAlertDialogBuilder(requireContext()).setView(R.layout.dialog_success).show();
                 break;
             case FAILURE:
+                mProgressBar.setVisibility(View.GONE);
                 feedback = getString(R.string.submission_failed);
-                dialog = new MaterialAlertDialogBuilder(requireContext()).setView(R.layout.dialog_failure).show();
+                new MaterialAlertDialogBuilder(requireContext()).setView(R.layout.dialog_failure).show();
                 break;
             case PENDING:
                 feedback = getString(R.string.submission_pending);
@@ -174,13 +183,10 @@ public class SubmissionFragment extends Fragment {
             default:
                 throw new IllegalArgumentException("Illegal state: " + state.name());
         }
-        Snackbar.make(requireView(), feedback, Snackbar.LENGTH_SHORT).show();
-        if (state == State.SUCCESS) {
-            //if (dialog.isShowing()) dialog.dismiss();
-            // launchHomePage();
-        }
+        Toast.makeText(requireContext(), feedback, Toast.LENGTH_SHORT).show();
     }
 
+    // displays the project submission confirmation alert dialog
     private void dialogBuilder() {
         final AlertDialog alertDialog = new MaterialAlertDialogBuilder(requireContext()).create();
 
@@ -190,10 +196,27 @@ public class SubmissionFragment extends Fragment {
             alertDialog.dismiss();
             Toast.makeText(requireContext(), "submission in progress...", Toast.LENGTH_SHORT).show();
             mProgressBar.setVisibility(View.VISIBLE);
-        });//view -> submitProject());
+            submitProject();
+        });
 
         alertDialog.setView(binding.getRoot());
         alertDialog.show();
+    }
+
+    // saves the user's typed text when configuration changes (e.g. screen rotation)
+    private void saveTextInputState(Bundle outState) {
+        outState.putString(Constant.EMAIL.getConstant(), Objects.requireNonNull(mEmail.getEditText()).getText().toString());
+        outState.putString(Constant.FIRST_NAME.getConstant(), Objects.requireNonNull(mFirstName.getEditText()).getText().toString());
+        outState.putString(Constant.LAST_NAME.getConstant(), Objects.requireNonNull(mLastName.getEditText()).getText().toString());
+        outState.putString(Constant.GITHUB_LINK.getConstant(), Objects.requireNonNull(mGitLink.getEditText()).getText().toString());
+    }
+
+    // restores the user's typed text after a configuration change (e.g. screen rotation)
+    private void restoreTextInputState(Bundle savedInstanceState) {
+        Objects.requireNonNull(mEmail.getEditText()).setText(savedInstanceState.getString(Constant.EMAIL.getConstant(), ""));
+        Objects.requireNonNull(mFirstName.getEditText()).setText(savedInstanceState.getString(Constant.FIRST_NAME.getConstant(), ""));
+        Objects.requireNonNull(mLastName.getEditText()).setText(savedInstanceState.getString(Constant.LAST_NAME.getConstant(), ""));
+        Objects.requireNonNull(mGitLink.getEditText()).setText(savedInstanceState.getString(Constant.GITHUB_LINK.getConstant(), ""));
     }
 
 }

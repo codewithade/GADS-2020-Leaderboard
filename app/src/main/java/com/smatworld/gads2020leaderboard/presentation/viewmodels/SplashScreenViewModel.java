@@ -1,4 +1,4 @@
-package com.smatworld.gads2020leaderboard.presentation.factory;
+package com.smatworld.gads2020leaderboard.presentation.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

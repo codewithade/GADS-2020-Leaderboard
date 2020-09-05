@@ -18,14 +18,17 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.smatworld.gads2020leaderboard.R;
 import com.smatworld.gads2020leaderboard.app.utils.Constant;
 import com.smatworld.gads2020leaderboard.app.utils.Helper;
-import com.smatworld.gads2020leaderboard.presentation.factory.SplashScreenViewModel;
+import com.smatworld.gads2020leaderboard.presentation.viewmodels.SplashScreenViewModel;
 import com.smatworld.gads2020leaderboard.presentation.factory.ViewModelProviderFactory;
+
+import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Inject;
 
 public class LaunchFragment extends Fragment {
 
     private static final String TAG = Constant.TAG.getConstant();
+    private static final long WAIT_TIME_IN_MILLIS = 3000;
     @Inject
     ViewModelProviderFactory mViewModelProviderFactory;
     private SplashScreenViewModel mSplashScreenViewModel;
@@ -42,7 +45,7 @@ public class LaunchFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return DataBindingUtil.inflate(inflater, R.layout.fragment_launch, container, false).getRoot();
     }
 
@@ -54,6 +57,6 @@ public class LaunchFragment extends Fragment {
             mSplashScreenViewModel.setIsFirstRun(false);
             Log.i(TAG, "Thread: " + Thread.currentThread().getName());
             NavHostFragment.findNavController(LaunchFragment.this).popBackStack(R.id.MainFragment, false);
-        }, 3000);
+        }, WAIT_TIME_IN_MILLIS);
     }
 }

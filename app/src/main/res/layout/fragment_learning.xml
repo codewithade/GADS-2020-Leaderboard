@@ -8,6 +8,7 @@
         android:paddingStart="@dimen/recycler_padding"
         android:paddingEnd="@dimen/recycler_padding"
         android:paddingTop="@dimen/tab_padding_top"
+        android:background="@color/white_test"
         tools:context=".app.ui.LearningFragment">
 
         <androidx.recyclerview.widget.RecyclerView

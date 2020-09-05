@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
+        android:contentDescription="@string/error_alert_image"
         android:id="@+id/error"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -25,7 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:textAppearance="?textAppearanceHeadline5"
+        android:textAppearance="@style/TextAppearance.MyTheme.TabLayoutTitle"
         android:text="@string/submission_not_successful"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

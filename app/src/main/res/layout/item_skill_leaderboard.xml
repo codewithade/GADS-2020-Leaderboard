@@ -15,14 +15,16 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/app_padding">
+        android:layout_marginBottom="@dimen/item_recyclerview_margin_bottom">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
             <ImageView
+                android:contentDescription="@string/learner_badge_image"
                 android:id="@+id/badge_image"
                 android:layout_width="@dimen/skill_badge_width"
                 android:layout_height="@dimen/skill_badge_height"

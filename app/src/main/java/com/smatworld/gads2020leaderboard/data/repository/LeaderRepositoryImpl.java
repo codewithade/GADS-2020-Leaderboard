@@ -15,6 +15,7 @@ import javax.inject.Inject;
 // fulfills the contract set by the Domain Layer
 public class LeaderRepositoryImpl implements LeaderRepository {
     private RemoteDataSource mRemoteDataSource;
+    // unused but added in case of future needs to persist data locally using ROOM for example
     private LocalDataSource mLocalDataSource;
 
     @Inject

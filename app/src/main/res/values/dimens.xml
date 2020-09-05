@@ -14,4 +14,5 @@
     <dimen name="tab_padding_top">4dp</dimen>
     <dimen name="recycler_padding">16dp</dimen>
     <dimen name="tab_item_size">16sp</dimen>
+    <dimen name="item_recyclerview_margin_bottom">16dp</dimen>
 </resources>

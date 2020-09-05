@@ -3,7 +3,7 @@ package com.smatworld.gads2020leaderboard.app.di;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.smatworld.gads2020leaderboard.presentation.factory.SplashScreenViewModel;
+import com.smatworld.gads2020leaderboard.presentation.viewmodels.SplashScreenViewModel;
 import com.smatworld.gads2020leaderboard.presentation.factory.ViewModelProviderFactory;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.LearningViewModel;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.ProjectSubmissionViewModel;

@@ -15,17 +15,17 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smatworld.gads2020leaderboard.R;
-import com.smatworld.gads2020leaderboard.app.utils.Constant;
 import com.smatworld.gads2020leaderboard.app.utils.Helper;
 import com.smatworld.gads2020leaderboard.databinding.FragmentLearningBinding;
 import com.smatworld.gads2020leaderboard.presentation.factory.ViewModelProviderFactory;
 import com.smatworld.gads2020leaderboard.presentation.viewmodels.LearningViewModel;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.inject.Inject;
 
 public class LearningFragment extends Fragment {
 
-    private static final String TAG = Constant.TAG.getConstant();
     private FragmentLearningBinding mBinding;
     private LearningAdapter mAdapter;
     @Inject
@@ -56,7 +56,7 @@ public class LearningFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_learning, container, false);
         return mBinding.getRoot();
     }
@@ -66,7 +66,6 @@ public class LearningFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initRecyclerView();
 
-        // mLearningViewModel.getLearningLeaders().observe(getViewLifecycleOwner(), mAdapter::submitList);
         mLearningViewModel.getLiveData().observe(getViewLifecycleOwner(), mAdapter::submitList);
     }
 
@@ -77,7 +76,6 @@ public class LearningFragment extends Fragment {
         RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
         if (manager == null) {
             recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), SPAN_COUNT));
-            //recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         }
         mAdapter = (LearningAdapter) recyclerView.getAdapter();
         if (mAdapter == null) {

@@ -7,4 +7,5 @@
     <dimen name="skill_badge_width">120dp</dimen>
     <dimen name="recycler_padding">32dp</dimen>
     <dimen name="tab_item_size">20sp</dimen>
+    <dimen name="item_recyclerview_margin_bottom">24dp</dimen>
 </resources>
