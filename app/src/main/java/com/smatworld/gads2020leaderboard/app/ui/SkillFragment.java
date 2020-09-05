@@ -30,7 +30,7 @@ public class SkillFragment extends Fragment {
     private FragmentSkillBinding mBinding;
     private static SkillFragment sInstance;
 
-    private SkillFragment() {
+    public SkillFragment() {
     }
 
     public static SkillFragment newInstance() {

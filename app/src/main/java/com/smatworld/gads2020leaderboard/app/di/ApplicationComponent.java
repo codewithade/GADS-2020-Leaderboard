@@ -2,6 +2,7 @@ package com.smatworld.gads2020leaderboard.app.di;
 
 import android.content.Context;
 
+import com.smatworld.gads2020leaderboard.app.ui.LaunchFragment;
 import com.smatworld.gads2020leaderboard.app.ui.LearningFragment;
 import com.smatworld.gads2020leaderboard.app.ui.MainFragment;
 import com.smatworld.gads2020leaderboard.app.ui.SkillFragment;
@@ -24,9 +25,9 @@ public interface ApplicationComponent {
     }
 
     // Classes that can be injected by this Component
-    // This tells Dagger that WelcomeFragment requests injection from AuthComponent
-    // so that this subcomponent graph needs to satisfy all the dependencies of the
-    // fields that WelcomeFragment is injecting
+    // This tells Dagger that LearningFragment requests injection
+    // so that this component graph needs to satisfy all the dependencies of the
+    // fields that LearningFragment is injecting
     void inject(LearningFragment learningFragment);
 
     void inject(SkillFragment skillFragment);
@@ -34,4 +35,6 @@ public interface ApplicationComponent {
     void inject(MainFragment mainFragment);
 
     void inject(SubmissionFragment submissionFragment);
+
+    void inject(LaunchFragment launchFragment);
 }

@@ -15,6 +15,7 @@ public class SkillIQ {
         this.badgeUrl = badgeUrl;
     }
 
+
     public SkillIQ() {
     }
 

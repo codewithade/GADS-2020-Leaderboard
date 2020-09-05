@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_land"
+        tools:context=".app.ui.SubmissionFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:padding="32dp"
+                android:src="@drawable/ic_backspace"
+                app:layout_constraintBottom_toTopOf="@id/first_name_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/first_name_text"
+                style="@style/Widget.MyTheme.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/first_name_hint"
+                android:padding="7dp"
+                android:paddingStart="@dimen/app_padding"
+                android:paddingEnd="7dp"
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintBottom_toTopOf="@id/email_text"
+                app:layout_constraintEnd_toStartOf="@id/last_name_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.6"
+                app:layout_constraintVertical_chainStyle="packed">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName|textAutoComplete" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/last_name_text"
+                style="@style/Widget.MyTheme.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/last_name_text"
+                android:padding="7dp"
+                android:paddingStart="7dp"
+                android:paddingEnd="@dimen/app_padding"
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintBottom_toBottomOf="@id/first_name_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/first_name_text"
+                app:layout_constraintTop_toTopOf="@id/first_name_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName|textAutoComplete" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_text"
+                style="@style/Widget.MyTheme.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/button_margin_top"
+                android:hint="@string/email_address_hint"
+                android:padding="7dp"
+                android:paddingStart="@dimen/app_padding"
+                android:paddingEnd="7dp"
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintBottom_toTopOf="@id/submit_button"
+                app:layout_constraintEnd_toStartOf="@id/git_link_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/first_name_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress|textAutoComplete" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/git_link_text"
+                style="@style/Widget.MyTheme.TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/github_link_text"
+                android:padding="7dp"
+                android:paddingStart="7dp"
+                android:paddingEnd="@dimen/app_padding"
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintBottom_toBottomOf="@id/email_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/email_text"
+                app:layout_constraintTop_toTopOf="@id/email_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress|textAutoComplete" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submit_button"
+                style="@style/Widget.MyTheme.SubmitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/button_margin_top"
+                android:paddingStart="@dimen/button_padding_start"
+                android:paddingEnd="@dimen/button_padding_end"
+                android:text="@string/submit_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email_text" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/submit_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/submit_button"
+                app:layout_constraintTop_toTopOf="@id/submit_button"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/LaunchFragment">
+    app:startDestination="@id/MainFragment">
 
     <fragment
         android:id="@+id/MainFragment"
@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_MainFragment_to_SubmissionFragment"
             app:destination="@id/SubmissionFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_LaunchFragment"
+            app:destination="@id/LaunchFragment" />
     </fragment>
     <fragment
         android:id="@+id/SkillFragment"
@@ -31,11 +34,7 @@
         android:id="@+id/LaunchFragment"
         android:name="com.smatworld.gads2020leaderboard.app.ui.LaunchFragment"
         android:label="fragment_launch"
-        tools:layout="@layout/fragment_launch">
-        <action
-            android:id="@+id/action_launchFragment_to_MainFragment"
-            app:destination="@id/MainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_launch"/>
     <fragment
         android:id="@+id/SubmissionFragment"
         android:name="com.smatworld.gads2020leaderboard.app.ui.SubmissionFragment"

@@ -33,11 +33,10 @@ public class LearningFragment extends Fragment {
     private LearningViewModel mLearningViewModel;
     private static LearningFragment sInstance;
 
-    private LearningFragment() {
+    public LearningFragment() {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
     public static LearningFragment newInstance() {
         if (sInstance == null)
             sInstance = new LearningFragment();

@@ -1,6 +1,5 @@
 package com.smatworld.gads2020leaderboard.app.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
@@ -8,7 +7,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -65,6 +63,7 @@ public class SubmissionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
     }
 
     @Override
@@ -83,7 +82,8 @@ public class SubmissionFragment extends Fragment {
         mSubmitButton.setOnClickListener(view1 -> {
             addTextChangeListener();
             if (!isEmpty)
-                dialogBuilder();
+                //dialogBuilder();
+                displayFeedback(State.FAILURE);
         });
 
     }
@@ -156,21 +156,17 @@ public class SubmissionFragment extends Fragment {
         }
     };
 
-    public static void hideKeyboard(Context context, View view) {
-        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        if (imm != null)
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
     private void displayFeedback(State state) {
+        AlertDialog dialog = null;
         String feedback;
         switch (state) {
             case SUCCESS:
                 feedback = getString(R.string.submission_success);
-
+                dialog = new MaterialAlertDialogBuilder(requireContext()).setView(R.layout.dialog_success).show();
                 break;
             case FAILURE:
                 feedback = getString(R.string.submission_failed);
+                dialog = new MaterialAlertDialogBuilder(requireContext()).setView(R.layout.dialog_failure).show();
                 break;
             case PENDING:
                 feedback = getString(R.string.submission_pending);
@@ -179,7 +175,10 @@ public class SubmissionFragment extends Fragment {
                 throw new IllegalArgumentException("Illegal state: " + state.name());
         }
         Snackbar.make(requireView(), feedback, Snackbar.LENGTH_SHORT).show();
-        if (state == State.SUCCESS) launchHomePage();
+        if (state == State.SUCCESS) {
+            //if (dialog.isShowing()) dialog.dismiss();
+            // launchHomePage();
+        }
     }
 
     private void dialogBuilder() {
