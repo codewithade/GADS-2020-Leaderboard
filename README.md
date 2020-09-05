@@ -24,27 +24,27 @@ It fetches data from a remote GADS API using Retrofit2 and offers offline cache 
 
 ## Screenshots
 1. Splash screen
-![splash_screen](https://user-images.githubusercontent.com/65837990/92296810-675f7800-ef30-11ea-95e3-5f153e265b39.png)
+![splash_screen](https://user-images.githubusercontent.com/65837990/92314843-4c930f00-efd5-11ea-81f5-cef8d2bb8610.png)
 
 2. Main App Screen showing the Skill IQ Leaders
-![skill](https://user-images.githubusercontent.com/65837990/92296662-f370a000-ef2e-11ea-9a5b-0b578f951396.png)
+![skills](https://user-images.githubusercontent.com/65837990/92314846-4e5cd280-efd5-11ea-8db3-3c1700fdbaf9.png)
 
 3. Main App Screen showing the Learning Leaders
-![learning](https://user-images.githubusercontent.com/65837990/92296661-f10e4600-ef2e-11ea-8496-3b1bbef8e8dc.png)
+![learning](https://user-images.githubusercontent.com/65837990/92314845-4dc43c00-efd5-11ea-906b-e0675b0f8973.png)
 
 4. Project Submission Screen
 ![submission](https://user-images.githubusercontent.com/65837990/92296663-f4093680-ef2e-11ea-84ae-f27ab7592a10.png)
 
 5. Project Submission Screen with a confirmation dialog
-![confirm_submission](https://user-images.githubusercontent.com/65837990/92296667-f66b9080-ef2e-11ea-8e37-201226db06f2.png)
+![dialog_submission](https://user-images.githubusercontent.com/65837990/92314850-4f8dff80-efd5-11ea-9b97-9ff38e4ee789.png)
 
 6. Project Submission Screen with error input fields
-![error_submission](https://user-images.githubusercontent.com/65837990/92296664-f4a1cd00-ef2e-11ea-96e7-12058913a75b.png)
+![error_submission](https://user-images.githubusercontent.com/65837990/92314849-4ef56900-efd5-11ea-8010-f90d316c505d.png)
 
 7. Project Submission Screen with success dialog
-![success_submission](https://user-images.githubusercontent.com/65837990/92296666-f5d2fa00-ef2e-11ea-889b-f3147a1ecdce.png)
+![succes_submission](https://user-images.githubusercontent.com/65837990/92314852-50bf2c80-efd5-11ea-962b-fed1ac13ac9f.png)
 
 8. Project Submission Screen with failure dialog
-![failed_submission](https://user-images.githubusercontent.com/65837990/92296665-f53a6380-ef2e-11ea-9df1-efa0a29c9c37.png)
+![failed_submission](https://user-images.githubusercontent.com/65837990/92314851-50269600-efd5-11ea-8b4e-fcb99fe7fae8.png)
 
 
