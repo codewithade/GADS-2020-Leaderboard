@@ -24,17 +24,35 @@ It fetches data from a remote GADS API using Retrofit2 and offers offline cache 
 
 ## Screenshots
 1. Splash screen
-![screenshot-1599181206786](https://user-images.githubusercontent.com/65837990/92188133-a8358f00-ee53-11ea-9505-0a253b21304f.jpg)
+
+![splash_screen](https://user-images.githubusercontent.com/65837990/92314843-4c930f00-efd5-11ea-81f5-cef8d2bb8610.png)
 
 2. Main App Screen showing the Skill IQ Leaders
-![screenshot-1599181121077](https://user-images.githubusercontent.com/65837990/92188156-b8e60500-ee53-11ea-84d2-b6fe2cb5ecc2.jpg)
+
+![skills](https://user-images.githubusercontent.com/65837990/92314846-4e5cd280-efd5-11ea-8db3-3c1700fdbaf9.png)
 
 3. Main App Screen showing the Learning Leaders
-![screenshot-1599181069882](https://user-images.githubusercontent.com/65837990/92188166-bd122280-ee53-11ea-8799-339fcc9fac95.jpg)
+
+![learning](https://user-images.githubusercontent.com/65837990/92314845-4dc43c00-efd5-11ea-906b-e0675b0f8973.png)
 
 4. Project Submission Screen
-![screenshot-1599181131757](https://user-images.githubusercontent.com/65837990/92188152-b4b9e780-ee53-11ea-9620-8f383ee08c8e.jpg)
+
+![submission](https://user-images.githubusercontent.com/65837990/92314848-4ef56900-efd5-11ea-93c5-7db87c9ec058.png)
 
 5. Project Submission Screen with a confirmation dialog
-![screenshot-1599181181108](https://user-images.githubusercontent.com/65837990/92188140-abc91600-ee53-11ea-9dbb-a154dc84edf2.jpg)
+
+![dialog_submission](https://user-images.githubusercontent.com/65837990/92314850-4f8dff80-efd5-11ea-9b97-9ff38e4ee789.png)
+
+6. Project Submission Screen with error input fields
+
+![error_submission](https://user-images.githubusercontent.com/65837990/92314849-4ef56900-efd5-11ea-8010-f90d316c505d.png)
+
+7. Project Submission Screen with success dialog
+
+![succes_submission](https://user-images.githubusercontent.com/65837990/92314852-50bf2c80-efd5-11ea-962b-fed1ac13ac9f.png)
+
+8. Project Submission Screen with failure dialog
+
+![failed_submission](https://user-images.githubusercontent.com/65837990/92314851-50269600-efd5-11ea-8b4e-fcb99fe7fae8.png)
+
 
