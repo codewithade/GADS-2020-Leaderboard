@@ -27,14 +27,24 @@ It fetches data from a remote GADS API using Retrofit2 and offers offline cache 
 ![screenshot-1599181206786](https://user-images.githubusercontent.com/65837990/92188133-a8358f00-ee53-11ea-9505-0a253b21304f.jpg)
 
 2. Main App Screen showing the Skill IQ Leaders
-![screenshot-1599181121077](https://user-images.githubusercontent.com/65837990/92188156-b8e60500-ee53-11ea-84d2-b6fe2cb5ecc2.jpg)
+![screenshot-1599181121077](https://user-![skill](https://user-images.githubusercontent.com/65837990/92296662-f370a000-ef2e-11ea-9a5b-0b578f951396.png)
 
 3. Main App Screen showing the Learning Leaders
-![screenshot-1599181069882](https://user-images.githubusercontent.com/65837990/92188166-bd122280-ee53-11ea-8799-339fcc9fac95.jpg)
+![learning](https://user-images.githubusercontent.com/65837990/92296661-f10e4600-ef2e-11ea-8496-3b1bbef8e8dc.png)
 
 4. Project Submission Screen
-![screenshot-1599181131757](https://user-images.githubusercontent.com/65837990/92188152-b4b9e780-ee53-11ea-9620-8f383ee08c8e.jpg)
+![submission](https://user-images.githubusercontent.com/65837990/92296663-f4093680-ef2e-11ea-84ae-f27ab7592a10.png)
 
 5. Project Submission Screen with a confirmation dialog
-![screenshot-1599181181108](https://user-images.githubusercontent.com/65837990/92188140-abc91600-ee53-11ea-9dbb-a154dc84edf2.jpg)
+![confirm_submission](https://user-images.githubusercontent.com/65837990/92296667-f66b9080-ef2e-11ea-8e37-201226db06f2.png)
+
+6. Project Submission Screen with error input fields
+![error_submission](https://user-images.githubusercontent.com/65837990/92296664-f4a1cd00-ef2e-11ea-96e7-12058913a75b.png)
+
+7. Project Submission Screen with success dialog
+![success_submission](https://user-images.githubusercontent.com/65837990/92296666-f5d2fa00-ef2e-11ea-889b-f3147a1ecdce.png)
+
+8. Project Submission Screen with failure dialog
+![failed_submission](https://user-images.githubusercontent.com/65837990/92296665-f53a6380-ef2e-11ea-9df1-efa0a29c9c37.png)
+
 
