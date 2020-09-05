@@ -27,7 +27,7 @@ It fetches data from a remote GADS API using Retrofit2 and offers offline cache 
 ![screenshot-1599181206786](https://user-images.githubusercontent.com/65837990/92188133-a8358f00-ee53-11ea-9505-0a253b21304f.jpg)
 
 2. Main App Screen showing the Skill IQ Leaders
-![screenshot-1599181121077](https://user-![skill](https://user-images.githubusercontent.com/65837990/92296662-f370a000-ef2e-11ea-9a5b-0b578f951396.png)
+![skill](https://user-images.githubusercontent.com/65837990/92296662-f370a000-ef2e-11ea-9a5b-0b578f951396.png)
 
 3. Main App Screen showing the Learning Leaders
 ![learning](https://user-images.githubusercontent.com/65837990/92296661-f10e4600-ef2e-11ea-8496-3b1bbef8e8dc.png)
