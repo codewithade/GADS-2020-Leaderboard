@@ -26,7 +26,7 @@ public class ServiceBuilder {
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient());
 
-    private static Retrofit sRetrofit = builder.build();
+    private static final Retrofit sRetrofit = builder.build();
 
     public static <S> S buildService(Class<S> serviceType) {
         return sRetrofit.create(serviceType);

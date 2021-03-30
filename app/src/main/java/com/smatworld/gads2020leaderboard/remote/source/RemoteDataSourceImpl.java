@@ -27,8 +27,8 @@ public class RemoteDataSourceImpl implements RemoteDataSource {
 
     private static final String TAG = Constant.TAG.getConstant();
 
-    private SubmissionService mSubmissionService;
-    private LeaderBoardService mLeaderBoardService;
+    private final SubmissionService mSubmissionService;
+    private final LeaderBoardService mLeaderBoardService;
     private Call<List<LearningLeaders>> mLearningLeadersCall;
     private Call<List<SkillIQ>> mSkillIQCall;
 
